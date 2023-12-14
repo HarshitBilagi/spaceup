@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <title>Login</title>
+<style>
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+nav{
+  top: 0;
+  position: fixed;
+  background: #c6cdd5;
+  height: 80px;
+  width: 100%;
+}
+
+a.active,a:hover{
+  background: #1b9bff;
+  transition: .5s;
+  color: white;
+}
+
+.container {
+  max-width: 400px;
+  height: 400px;
+  margin: 200px auto;
+  padding: 20px;
+  background-color:#fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color:#000;
+  font-size:54px;
+}
+
+form {
+  margin-top: 30px;
+  color:#000;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 94%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-login {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4b2ede;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #45a049;
+}
+
+.options {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.options a {
+  color: #000;
+  text-decoration: none;
+}
+.toggle_box{
+    width: 113px;
+    height: 49px;
+    display: block;
+    background-color: #000;
+    border-radius: 1000px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s;
+    margin-top: 18px;
+    float:right;
+}
+input[type="checkbox"]{
+    display: none;
+}
+.circle{
+    position: absolute;
+    width: 31px;
+    height: 29px;
+    left: 0px;
+    background-color: #fff;
+    border-radius: 1000px;
+    /* margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px; */
+    margin: 10px;
+    transition: 0.5s;
+
+}
+</style>
+</head>
+<body>
+  <nav>
+        <label class="toggle_box">
+            <input type="checkbox" id="checkbox">
+            <div class="circle"></div>
+        </label>
+  </nav>
+  <div class="container">
+    <h1 id="topic">Login</h1>
+    <form action="login.php" method="" class="forms">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <div class="form-group">
+        <button id="p" type="submit" name="login-submit" class="btn-login">Login</button>
+      </div>
+    </form>
+    <div class="options">
+      <a href="forgotpass.html">Forgot password?</a><br><br>
+      <a href="signup.html">New user? Create an account</a>
+    </div>
+  </div>
+</body>
+<script>
+    let toggle_box = document.querySelector(".toggle_box");
+    let circle = document.querySelector(".circle");
+    let checkbox = document.getElementById("checkbox");
+    let container_obj=document.querySelector(".container");
+    let forms_obj=document.querySelector(".forms");
+    let h1_obj = document.getElementById("topic");
+
+    toggle_box.onclick = function(){
+        if(checkbox.checked){
+            circle.style.transform = "translateX(68px)";
+            circle.style.backgroundColor = "#000";
+            toggle_box.style.backgroundColor = "#fff";
+            document.body.style.backgroundColor = "#000";
+            container_obj.style.backgroundColor = "#484848";
+            forms_obj.style.color ="#fff";
+            h1_obj.style.color="#fff";
+        }else{
+            circle.style.transform = "translateX(0px)";
+            circle.style.backgroundColor = "#fff";
+            toggle_box.style.backgroundColor = "#000";
+            document.body.style.backgroundColor = "#fff";
+            container_obj.style.backgroundColor = "#fff";
+            forms_obj.style.color ="#000";
+            h1_obj.style.color="#000";
+        }
+    }
+</script>
+</html>
